@@ -1,4 +1,4 @@
-# KCoin Ecosystem - Frontend
+# KCoin Ecosystem - Frontend 
 
 The frontend interface for the KCoin Blockchain Ecosystem. Built with Next.js, TypeScript, and Tailwind CSS.
 
