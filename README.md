@@ -1,74 +1,55 @@
-# KCoin Ecosystem - Frontend 
+# KCoin Ecosystem
 
-The frontend interface for the KCoin Blockchain Ecosystem. Built with Next.js, TypeScript, and Tailwind CSS.
+A simplified blockchain ecosystem built with **Node.js (Backend)** and **Next.js (Frontend)**.
+This project demonstrates a Proof-of-Work blockchain, wallet management, real-time transactions, and a block explorer.
+
+**Note for Reviewers:** Environment variables (`.env`) are included in this repository for ease of setup and testing.
 
 ## 🚀 Features
 
-### 1. Dashboard & Wallet
-- **View Balance:** Real-time updates of your KCoin balance.
-- **Wallet Address:** Copy your unique wallet address.
-- **User Identity:** Displays your logged-in email.
-
-### 2. Smart Transactions
-- **Send KCoin:** Transfer coins to other users.
-- **Email Resolution:** Send coins using a **Recipient Email Address** (e.g., `friend@kcoin.com`) instead of a long wallet address. The system automatically resolves it.
-- **Real-time Updates:** Balances update instantly via WebSockets (Socket.IO) when transactions occur.
-
-### 3. Mining Station
-- **Proof-of-Work:** Mine new blocks to earn rewards (10 KCoin/block).
-- **Visual Feedback:** See mining progress and success messages.
-
-### 4. Blockchain Explorer
-- **Live Chain View:** Visualize the entire blockchain.
-- **Block Details:** Inspect hashes, nonces, and timestamps.
-- **Transaction History:** View all transactions included in each block.
-- **Live Updates:** The explorer refreshes automatically when new blocks are mined.
+- **Blockchain Core:** Custom implementation of a blockchain with Proof-of-Work mining.
+- **Smart Transactions:** Send coins via Wallet Address or **Email** (auto-resolution).
+- **Real-time Updates:** Powered by **Socket.IO**. Balances and blocks update instantly.
+- **Mining:** Visual mining interface to earn KCoin rewards.
+- **Explorer:** Inspect blocks and transactions in real-time.
+- **Authentication:** Secure login/register using NextAuth.js.
 
 ## 🛠️ Tech Stack
 
-- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Authentication:** NextAuth.js (Credentials Provider)
-- **Real-time:** Socket.IO Client
-- **HTTP Client:** Axios
+- **Backend:** Node.js, Express, TypeScript, Prisma (MongoDB), Socket.IO
+- **Frontend:** Next.js 14, TypeScript, Tailwind CSS, NextAuth.js, Socket.IO Client
 
 ## 📦 Getting Started
 
 ### Prerequisites
 - Node.js installed.
-- **Backend Server** running on port `3001`.
+- MongoDB Database (URL is provided in `backend/.env`).
 
-### Installation
+### 1. Backend Setup
 
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Create a `.env.local` file (if not exists):
-   ```env
-   NEXTAUTH_URL=http://localhost:3000
-   NEXTAUTH_SECRET=supersecretkey
-   ```
-
-### Running the App
-
-Start the development server:
+Navigate to the backend folder and start the server:
 
 ```bash
+cd backend
+npm install
 npm run dev
 ```
+*Server runs on `http://localhost:3001`*
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+### 2. Frontend Setup
 
-## 🔐 Authentication
+Open a new terminal, navigate to the frontend folder, and start the app:
 
-- **Register:** Create a new account with an email and password.
-- **Login:** Access your wallet using your credentials.
-- **Session:** Managed via NextAuth.js with JWT strategies.
+```bash
+cd frontend
+npm install
+npm run dev
+```
+*App runs on `http://localhost:3000`*
+
+## 🧪 Testing the App
+
+1. **Register:** Open `http://localhost:3000` and create an account.
+2. **Mine:** Go to "Mining Station" and mine a block to get 10 KCoin.
+3. **Transact:** Open an incognito window, create a second account, and send coins from the first account using the second account's **Email**.
+4. **Verify:** Watch the balance update instantly on both screens!
